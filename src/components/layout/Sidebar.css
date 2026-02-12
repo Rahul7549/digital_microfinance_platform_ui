@@ -1,0 +1,282 @@
+/* ======================================
+   MAIN LAYOUT STRUCTURE (VERY IMPORTANT)
+====================================== */
+
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+
+/* ======================================
+   HEADER
+====================================== */
+
+.header {
+  height: 60px;
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+
+/* ======================================
+   SIDEBAR CONTAINER
+====================================== */
+
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #111827, #1f2937);
+  color: white;
+  padding: 20px 10px;
+  transition: width 0.3s ease;
+  overflow: visible; /* required for floating submenu */
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+
+/* ======================================
+   MENU STRUCTURE
+====================================== */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  position: relative; /* required for floating submenu */
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover (Expanded Mode) */
+.menu-item:hover {
+  background: #374151;
+  color: white;
+}
+
+/* Active (Expanded Mode) */
+.menu-item.active {
+  background: #2563eb;
+  color: white;
+}
+
+
+/* ======================================
+   ARROW ROTATION
+====================================== */
+
+.arrow {
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+
+/* ======================================
+   COLLAPSED MODE FIXES
+====================================== */
+
+/* Center Icon */
+.sidebar.collapsed .menu-item {
+  justify-content: center;
+  padding: 12px 0;
+  background: transparent;
+}
+
+/* Hide Text */
+.sidebar.collapsed .menu-item span {
+  display: none;
+}
+
+/* Remove container hover */
+.sidebar.collapsed .menu-item:hover {
+  background: transparent;
+}
+
+/* Icon styling */
+.sidebar.collapsed .menu-item svg {
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+/* Icon hover */
+.sidebar.collapsed .menu-item:hover svg {
+  background: #374151;
+}
+
+/* Icon active */
+.sidebar.collapsed .menu-item.active {
+  background: transparent;
+}
+
+.sidebar.collapsed .menu-item.active svg {
+  background: #2563eb;
+  color: white;
+}
+
+
+/* ======================================
+   SUBMENU (EXPANDED MODE)
+====================================== */
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  padding-left: 15px;
+  border-left: 2px solid #374151;
+  gap: 6px;
+  animation: slideDown 0.2s ease-in-out;
+}
+
+.submenu a {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #9ca3af;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.submenu a:hover {
+  background: #374151;
+  color: white;
+}
+
+.submenu a.active {
+  background: #2563eb;
+  color: white;
+}
+
+
+/* ======================================
+   FLOATING SUBMENU (COLLAPSED MODE)
+====================================== */
+
+.submenu-floating {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #1f2937;
+  padding: 12px;
+  border-radius: 8px;
+  min-width: 170px;
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.2s ease;
+  z-index: 2000;
+}
+
+/* Show floating submenu only in collapsed mode */
+.sidebar.collapsed .menu-item:hover .submenu-floating {
+  display: flex;
+}
+
+.submenu-floating a {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #d1d5db;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.submenu-floating a:hover {
+  background: #374151;
+  color: white;
+}
+
+.submenu-floating a.active {
+  background: #2563eb;
+  color: white;
+}
+
+
+/* ======================================
+   ANIMATIONS
+====================================== */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===============================
+   SIDEBAR LOGO
+================================*/
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px 30px 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+.logo-icon {
+  font-size: 22px;
+}
+
+/* Collapsed Mode */
+.sidebar.collapsed .sidebar-logo {
+  justify-content: center;
+}
+
+.sidebar.collapsed .logo-text {
+  display: none;
+}
+
