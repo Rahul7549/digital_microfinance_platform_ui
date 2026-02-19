@@ -30,10 +30,10 @@ export default function Sidebar({ collapsed }) {
     <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
       <nav className="menu">
 
-      <div className="sidebar-logo">
-    <FaUniversity className="logo-icon" />
-    {!collapsed && <span className="logo-text">DMF Bank</span>}
-  </div>
+        <div className="sidebar-logo">
+          <FaUniversity className="logo-icon" />
+          {!collapsed && <span className="logo-text">DMF Bank</span>}
+        </div>
 
         {/* ================= Dashboard ================= */}
         <NavLink
