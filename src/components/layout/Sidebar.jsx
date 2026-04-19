@@ -108,26 +108,10 @@ export default function Sidebar({ collapsed }) {
           {!collapsed && <span>Settings</span>}
         </NavLink>
 
-        <NavLink
-          to="/settings"
-          className={({ isActive }) =>
-            `menu-item ${isActive ? "active" : ""}`
-          }
-        >
-          <FaCog />
-          {!collapsed && <span>App Settings CI/CD Deployment</span>}
-        </NavLink>
+        
 
 
-        <NavLink
-          to="/settings"
-          className={({ isActive }) =>
-            `menu-item ${isActive ? "active" : ""}`
-          }
-        >
-          <FaCog />  
-          {!collapsed && <span>App Settings CI/CD Deployment test-Rahul</span>}
-        </NavLink>
+        
 
       </nav>
     </aside>
