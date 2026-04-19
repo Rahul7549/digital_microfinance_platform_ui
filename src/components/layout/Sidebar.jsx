@@ -126,7 +126,7 @@ export default function Sidebar({ collapsed }) {
           }
         >
           <FaCog />  
-          {!collapsed && <span>App Settings CI/CD Deployment test-1</span>}
+          {!collapsed && <span>App Settings CI/CD Deployment test-Rahul</span>}
         </NavLink>
 
       </nav>
