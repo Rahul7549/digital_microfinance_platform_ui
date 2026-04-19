@@ -115,7 +115,7 @@ export default function Sidebar({ collapsed }) {
           }
         >
           <FaCog />
-          {!collapsed && <span>App Settings</span>}
+          {!collapsed && <span>App Settings CI/CD Deployment</span>}
         </NavLink>
 
       </nav>
