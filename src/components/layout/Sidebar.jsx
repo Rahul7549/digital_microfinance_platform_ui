@@ -125,8 +125,8 @@ export default function Sidebar({ collapsed }) {
             `menu-item ${isActive ? "active" : ""}`
           }
         >
-          <FaCog />
-          {!collapsed && <span>App Settings CI/CD Deployment</span>}
+          <FaCog />  
+          {!collapsed && <span>App Settings CI/CD Deployment test-1</span>}
         </NavLink>
 
       </nav>
